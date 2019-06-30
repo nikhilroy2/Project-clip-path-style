@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+*{
+    font-family: 'Pacifico', cursive;
+}
+body{
+    background: linear-gradient(76deg, black , whitesmoke) no-repeat;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+.custom_768px{
+    min-width: 768px;
+}
+nav, ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+ul.list_menu{
+    width: 500px;
+    background: linear-gradient(white, yellow);
+    margin: 0px auto;
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 0px 0px 8px 8px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.list_item{
+    margin: 0px auto;
+}
+.list_item>.list_link{
+    padding: 12px 15px;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: .3s linear color;
+    display: inline-block;
+}
+.list_link:hover{
+    color: red;
+}
+.check_bar{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+input[type="checkbox"]{
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2000;
+    position: relative;
+}
+span.bar{
+    width: 40px;
+    height: 6px;
+    background: red;
+    display: inline-block;
+    position: absolute;
+    pointer-events: none;
+}
+
+.bar:nth-of-type(1){
+    top: 5px;
+}
+.bar:nth-of-type(2){
+    top: 18px;
+}
+.bar:nth-of-type(3){
+    top: 30px;
+}
+
+input[type="checkbox"]:checked ~ .bar:nth-of-type(1){
+    transform: rotate(45deg);
+    transform-origin: left;
+    margin-top: -2px;
+    background: white;
+}
+input[type="checkbox"]:checked ~ .bar:nth-of-type(2){
+    transform: scale(0,0);
+}
+input[type="checkbox"]:checked ~ .bar:nth-of-type(3){
+    transform: rotate(-45deg);
+    transform-origin: left;
+    background: white;
+ 
+}
+.bar_round{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 50px solid white;
+    border-radius: 50%;
+    top: -266%;
+    left: -389%;
+    z-index: 100;
+    transform: scale(0,0) translateX(-350px);
+    transition: .5s linear transform;
+    box-shadow: 0px 0px 10px 5px inset blue,
+                0px 0px 10px 10px inset red,
+                0px 0px 10px 15px inset deeppink,
+                0px 0px 10px 20px inset cyan,
+                0px 0px 15px 5px orangered;
+}
+.bar_round::after{
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 50%;
+    top: 40%;
+    left: 40%;
+    background: linear-gradient(70deg, blue, deeppink, cyan);
+    border-radius: 50%;
+    clip-path: polygon(56% 50%, 83% 59%, 63% 35%, 41% 78%, 68% 82%, 81% 74%, 18% 49%, 46% 29%, 27% 75%, 53% 43%, 68% 64%, 58% 91%, 26% 25%);
+}
+.bar_round:hover{
+    animation: 5s linear bar_round infinite alternate ;
+}
+@keyframes bar_round{
+    0%{
+        transform: rotate(-5deg);
+    }
+    100%{
+        transform: rotate(5deg);
+    }
+}
+input[type="checkbox"]:checked ~ .bar_round{
+    transform: scale(1,1) translateX(0px);
+}
+.bar_round_icon{
+    position: absolute;
+}
+.bar_round_icon:nth-of-type(1){
+    top: 70%;
+    left: 94%;
+    transform: rotate(35deg);
+}
+.bar_round_icon:nth-of-type(2){
+    top: 26%;
+    left: 101%;
+    transform: rotate(-12deg);
+}
+.bar_round_icon:nth-of-type(3){
+    top: 99%;
+    left: 56%;
+    transform: rotate(74deg);
+}
+.bar_round_icon a{
+    color: black;
+    border-radius: 50%;
+    display: inline-block;
+}
+.bar_round_icon a:active{
+    color: blue;
+}
+.bar_round_icon i{
+    font-size: 45px;
+}
+.wrapper{
+    min-width: 700px;
+    margin: auto;
+    min-height: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.item_line{
+    display: flex;
+}
+.item{
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(red, yellow);
+    margin: 5px;
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+    animation: 2s linear infinite clip-path alternate;
+    border-radius: 100%;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@keyframes clip-path{
+    0%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
